@@ -1,0 +1,14 @@
+Under this folder
+
+Arduino Side: 
+	1. helper_3dmath.h
+	2. I2Cdev.cpp (new version, not the same as lab provided)
+	3. I2Cdev.h
+	4. main.ino
+	5. MPU6050_6Axis_MotionApps612.cpp  (provide build in DMP firmware)
+	6. MPU6050_6Axis_MotionApps612.h
+	7. MPU6050.cpp(new version)
+	8. MPU6050.h  (new version)
+
+Host PC side:
+	1. read.py
