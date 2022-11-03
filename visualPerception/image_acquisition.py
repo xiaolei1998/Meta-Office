@@ -12,7 +12,7 @@ get dependent package and lib:
 def handler(signum, frame):
     print("forced shut down")
     sys.exit(0)
-
+#pressing control-c to force shut down cam
 signal.signal(signal.SIGINT, handler)
 
 #setting up the camera port
