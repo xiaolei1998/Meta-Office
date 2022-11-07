@@ -24,7 +24,7 @@ while(True):
 
     if captured:
         #save the input to local path
-        cv2.imwrite("input_img.png", image)
+        cv2.imwrite("input_img.jpg", image)
 
     sleep(5)
 
