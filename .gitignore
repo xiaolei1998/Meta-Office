@@ -1,4 +1,5 @@
 
 .DS_Store
 visualPerception/model_final.pth
-input_img.jpg
+visualPerception/input_img.jpg
+*.jpg
