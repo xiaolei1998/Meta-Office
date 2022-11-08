@@ -10,8 +10,6 @@ import math
 import threading
 from threading import *  
 from queue import Queue
-#$ pip3 install filterpy
-from filterpy.kalman import KalmanFilter
 
 
 
