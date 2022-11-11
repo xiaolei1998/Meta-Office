@@ -61,10 +61,46 @@ public class AnimationControl : MonoBehaviour
         /*use helper function get_fasterRCNN to process*/
         ////////////////////////////////////////////////
         string obj = get_fasterRCNN();
-        if(obj != null){
+        if(obj != null)
+        {
             /*写decode obj */
+            // number: Number of items, Type[i, 0]: what is it, Type[i, 1]: which zone to put (0-3)
+            
             Debug.Log(obj);
-
+            
+            string[] reading = new string[30];
+            int count = 0;
+            string temp = "";
+            foreach (char c in obj)
+            {
+                if ((c >= '0' && c <= '9') || c == '.')
+                    temp = temp + c;
+                else
+                {
+                    if (temp != "")
+                        reading[count++] = temp;
+                    temp = "";
+                }
+            }
+            if (temp != "")
+                reading[count++] = temp;
+            int number = (count - 3) / 6;
+            int[,] Type = new int[number, 2];
+            double[,] Location = new double[number, 4];
+            double[] image = {System.Convert.ToDouble(reading[1]), System.Convert.ToDouble(reading[2])};
+            for (int i = 0; i < number; i++)
+            {
+                Location[i, 0] = System.Convert.ToDouble(reading[i * 4 + 3]);
+                Location[i, 1] = System.Convert.ToDouble(reading[i * 4 + 4]);
+                Location[i, 2] = System.Convert.ToDouble(reading[i * 4 + 5]);
+                Location[i, 3] = System.Convert.ToDouble(reading[i * 4 + 6]);
+                Type[i, 1] = 0;
+                if (Location[i, 1] + Location[i, 3] > image[0])
+                    Type[i, 1] += 2;
+                if (Location[i, 0] + Location[i, 2] > image[0])
+                    Type[i, 1] += 1;
+                Type[i, 0] = int.Parse(reading[count - number + i]);
+            }
             /*如果图像里有两个监测到的物体 就是这样的 
             {'instances': Instances(num_instances=2, image_height=1707, image_width=1280, fields=[pred_boxes: Boxes(tensor([[ 736.8550,  160.0862, 1094.8132, 1412.2230],
             [ 294.6116,  605.9538,  600.7311,  925.4279]])), scores: tensor([0.9804, 0.9376]), pred_classes: tensor([3, 1])])}*/
