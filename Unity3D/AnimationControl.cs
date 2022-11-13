@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,11 +27,16 @@ public class AnimationControl : MonoBehaviour
     private Rigidbody rd;
     private float m_Speed = 3f;
 
+    string UnityPath;
+
 
 
     // Start is called before the first frame update
     void Start(){
         Debug.Log("main");
+
+        UnityPath = Application.dataPath + "/StreamingAssets/display.txt";
+
 
         myAnimator = this.GetComponent<Animator>();
         mutex_mpu = new Mutex();
@@ -54,16 +60,81 @@ public class AnimationControl : MonoBehaviour
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        /*RCNN projection logic here*/
-        /*use helper function get_fasterRCNN to process*/
-        ////////////////////////////////////////////////
+    void Update(){
+        
         string obj = get_fasterRCNN();
+        project_objects(obj);
+
+        float speed = 1;
+
+        if (Input.GetKey(KeyCode.RightArrow)){
+            transform.position += Vector3.right * speed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.LeftArrow)){
+            transform.position += Vector3.left* speed * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.UpArrow)){
+            transform.position += Vector3.forward * speed * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow)){
+            transform.position += Vector3.back* speed * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.S)){
+             transform.position += Vector3.down* speed * Time.deltaTime;
+        }
+        
+        if (Input.GetKey(KeyCode.W)){
+             transform.position += Vector3.up* speed * Time.deltaTime;
+            
+        }
+
+            
+    }
+
+
+    // Update is called once per frame
+    void Update01()
+    {
+        /*use helper function get_fasterRCNN to process*/
+        string obj = get_fasterRCNN();
+        
+        project_objects(obj);
+        
+        /*MPU control logic here*/
+        if(motions.Count != 0){
+            mutex_mpu.WaitOne();
+            velocity = motions.Dequeue();
+            mutex_mpu.ReleaseMutex();
+
+            float forward_back = velocity[0]; //controlled by pitch
+            float left_right   = velocity[1]; //controlled by roll
+            float up_down   = 0;
+
+            if (Input.GetKey(KeyCode.S)){
+                up_down = -1;
+            }
+            
+            if (Input.GetKey(KeyCode.W)){
+                up_down = 1;
+            }
+
+            /* in the format of [left/right,up/down,forward/back]*/
+            Vector3 m_Input = new Vector3(left_right, up_down, forward_back);
+            // Debug.Log(left_right);
+            
+            
+            this.transform.Translate(m_Input* Time.deltaTime);  
+
+        }
+
+    }
+
+    void project_objects(string obj){
         if(obj != null)
         {
-            /*写decode obj */
             // number: Number of items, Type[i, 0]: what is it, Type[i, 1]: which zone to put (0-3)
             
             Debug.Log(obj);
@@ -101,48 +172,17 @@ public class AnimationControl : MonoBehaviour
             string[] Output = new string[5];
             for (int i = 0; i < number; i++)
             {
-                if(i != 0)
+                if(i != 0){
                     Output[0] += " ";
+                }
                 Output[0] += Convert.ToString(Type[i, 0]);
                 Output[i + 1] = Convert.ToString(Type[i, 1]) + " 0 0";
             }
             for (int i = number; i < 4; i++)
                 Output[i + 1] = "0 0 0";
-            System.IO.File.WriteAllLines(@"display.txt", Output);
             
-            /*如果图像里有两个监测到的物体 就是这样的 
-            {'instances': Instances(num_instances=2, image_height=1707, image_width=1280, fields=[pred_boxes: Boxes(tensor([[ 736.8550,  160.0862, 1094.8132, 1412.2230],
-            [ 294.6116,  605.9538,  600.7311,  925.4279]])), scores: tensor([0.9804, 0.9376]), pred_classes: tensor([3, 1])])}*/
+            System.IO.File.WriteAllLines(@UnityPath, Output);
         }
-
-        
-        /*MPU control logic here*/
-        if(motions.Count != 0){
-            mutex_mpu.WaitOne();
-            velocity = motions.Dequeue();
-            mutex_mpu.ReleaseMutex();
-
-            float forward_back = velocity[0]; //controlled by pitch
-            float left_right   = velocity[1]; //controlled by roll
-            float up_down   = 0;
-
-            if (Input.GetKey(KeyCode.S)){
-                up_down = -1;
-            }
-            
-            if (Input.GetKey(KeyCode.W)){
-                up_down = 1;
-            }
-
-            /* in the format of [left/right,up/down,forward/back]*/
-            Vector3 m_Input = new Vector3(left_right, up_down, forward_back);
-            // Debug.Log(left_right);
-            
-            
-            this.transform.Translate(m_Input* Time.deltaTime);  
-
-        }
-
     }
 
     /*
@@ -199,7 +239,7 @@ public class AnimationControl : MonoBehaviour
 
             int byteRecv = sender.Receive(messageReceive);
             string s = Encoding.ASCII.GetString(messageReceive, 0, byteRecv);
-            Debug.Log(s);
+            // Debug.Log(s);
             mutex_rcnn.WaitOne();
             objsDetction.Enqueue(s);
             mutex_rcnn.ReleaseMutex();

@@ -118,7 +118,7 @@ if pid > 0:
             #save the input to local path
             cv2.imwrite("/Users/Michelle/Desktop/CEG5205/project/meta/visualPerception/input_img.jpg", image)
 
-        sleep(5)
+        sleep(3)
 
 else:
     #child process 
