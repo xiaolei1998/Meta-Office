@@ -85,7 +85,7 @@ public class AnimationControl : MonoBehaviour
             if (temp != "")
                 reading[count++] = temp;
             int number = (count - 3) / 6;
-            int[,] Type = new int[number, 2];
+            double[,] Type = new double[number, 2];
             double[,] Location = new double[number, 4];
             double[] image = {System.Convert.ToDouble(reading[1]), System.Convert.ToDouble(reading[2])};
             for (int i = 0; i < number; i++)
@@ -94,13 +94,22 @@ public class AnimationControl : MonoBehaviour
                 Location[i, 1] = System.Convert.ToDouble(reading[i * 4 + 4]);
                 Location[i, 2] = System.Convert.ToDouble(reading[i * 4 + 5]);
                 Location[i, 3] = System.Convert.ToDouble(reading[i * 4 + 6]);
-                Type[i, 1] = 0;
-                if (Location[i, 1] + Location[i, 3] > image[0])
-                    Type[i, 1] += 2;
-                if (Location[i, 0] + Location[i, 2] > image[0])
-                    Type[i, 1] += 1;
+                Type[i, 1] = 2 - (Location[i, 0] + Location[i, 2]) * 5 / image[0];
                 Type[i, 0] = int.Parse(reading[count - number + i]);
             }
+            
+            string[] Output = new string[5];
+            for (int i = 0; i < number; i++)
+            {
+                if(i != 0)
+                    Output[0] += " ";
+                Output[0] += Convert.ToString(Type[i, 0]);
+                Output[i + 1] = Convert.ToString(Type[i, 1]) + " 0 0";
+            }
+            for (int i = number; i < 4; i++)
+                Output[i + 1] = "0 0 0";
+            System.IO.File.WriteAllLines(@"display.txt", Output);
+            
             /*如果图像里有两个监测到的物体 就是这样的 
             {'instances': Instances(num_instances=2, image_height=1707, image_width=1280, fields=[pred_boxes: Boxes(tensor([[ 736.8550,  160.0862, 1094.8132, 1412.2230],
             [ 294.6116,  605.9538,  600.7311,  925.4279]])), scores: tensor([0.9804, 0.9376]), pred_classes: tensor([3, 1])])}*/
