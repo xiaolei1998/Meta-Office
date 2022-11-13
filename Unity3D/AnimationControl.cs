@@ -139,7 +139,7 @@ public class AnimationControl : MonoBehaviour
             
             Debug.Log(obj);
             
-            string[] reading = new string[30];
+            string[] reading = new string[50];
             int count = 0;
             string temp = "";
             foreach (char c in obj)
@@ -165,7 +165,7 @@ public class AnimationControl : MonoBehaviour
                 Location[i, 1] = System.Convert.ToDouble(reading[i * 4 + 4]);
                 Location[i, 2] = System.Convert.ToDouble(reading[i * 4 + 5]);
                 Location[i, 3] = System.Convert.ToDouble(reading[i * 4 + 6]);
-                Type[i, 1] = 2 - (Location[i, 0] + Location[i, 2]) * 5 / image[0];
+                Type[i, 1] = -0.5 - (Location[i, 0] + Location[i, 2]) * 9 / 2 / image[1];
                 Type[i, 0] = int.Parse(reading[count - number + i]);
             }
             
@@ -178,6 +178,8 @@ public class AnimationControl : MonoBehaviour
                 Output[0] += Convert.ToString(Type[i, 0]);
                 Output[i + 1] = Convert.ToString(Type[i, 1]) + " 0 0";
             }
+		  	if (number == 0)
+				Output[0] += "0";
             for (int i = number; i < 4; i++)
                 Output[i + 1] = "0 0 0";
             
