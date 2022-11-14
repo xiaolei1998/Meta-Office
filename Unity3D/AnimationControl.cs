@@ -135,7 +135,7 @@ public class AnimationControl : MonoBehaviour
     void project_objects(string obj){
         if(obj != null)
         {
-            // number: Number of items, Type[i, 0]: what is it, Type[i, 1]: which zone to put (0-3)
+            // number: Number of items, Type[i, 0]: what is it, Type[i, 1]: which zone to put ([-9.5, -0.5])
             
             Debug.Log(obj);
             
@@ -156,32 +156,37 @@ public class AnimationControl : MonoBehaviour
             if (temp != "")
                 reading[count++] = temp;
             int number = (count - 3) / 6;
-            double[,] Type = new double[number, 2];
-            double[,] Location = new double[number, 4];
-            double[] image = {System.Convert.ToDouble(reading[1]), System.Convert.ToDouble(reading[2])};
-            for (int i = 0; i < number; i++)
-            {
-                Location[i, 0] = System.Convert.ToDouble(reading[i * 4 + 3]);
-                Location[i, 1] = System.Convert.ToDouble(reading[i * 4 + 4]);
-                Location[i, 2] = System.Convert.ToDouble(reading[i * 4 + 5]);
-                Location[i, 3] = System.Convert.ToDouble(reading[i * 4 + 6]);
-                Type[i, 1] = -0.5 - (Location[i, 0] + Location[i, 2]) * 9 / 2 / image[1];
-                Type[i, 0] = int.Parse(reading[count - number + i]);
-            }
-            
             string[] Output = new string[5];
-            for (int i = 0; i < number; i++)
+            if (number > 0)
             {
-                if(i != 0){
-                    Output[0] += " ";
+                double[,] Type = new double[number, 2];
+                double[,] Location = new double[number, 4];
+                double[] image = {System.Convert.ToDouble(reading[1]), System.Convert.ToDouble(reading[2])};
+                for (int i = 0; i < number; i++)
+                {
+                    Location[i, 0] = System.Convert.ToDouble(reading[i * 4 + 3]);
+                    Location[i, 1] = System.Convert.ToDouble(reading[i * 4 + 4]);
+                    Location[i, 2] = System.Convert.ToDouble(reading[i * 4 + 5]);
+                    Location[i, 3] = System.Convert.ToDouble(reading[i * 4 + 6]);
+                    Type[i, 1] = -0.5 - (Location[i, 0] + Location[i, 2]) * 9 / 2 / image[1];
+                    Type[i, 0] = int.Parse(reading[count - number + i]);
                 }
-                Output[0] += Convert.ToString(Type[i, 0]);
-                Output[i + 1] = Convert.ToString(Type[i, 1]) + " 0 0";
+                for (int i = 0; i < number; i++)
+                {
+                    if (i != 0)
+                        Output[0] += " ";
+                    Output[0] += Convert.ToString(Type[i, 0]);
+                    Output[(int)Type[i, 0]] = Convert.ToString(Type[i, 1]) + " 0 0";
+                }
+                for (int i = 1; i <= 4; i++)
+                    if(Output[i] == null)
+                        Output[i] = "0 0 0";
             }
-		  	if (number == 0)
-				Output[0] += "0";
-            for (int i = number; i < 4; i++)
-                Output[i + 1] = "0 0 0";
+            else
+            {
+                Output[0] = "0";
+                Output[1] = Output[2] = Output[3] = Output[4] = "0 0 0";
+            }
             
             System.IO.File.WriteAllLines(@UnityPath, Output);
         }
