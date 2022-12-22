@@ -43,7 +43,7 @@ pytorch                   1.13.0                  py3.9_0    pytorch(newest from
 """
 
 
-#hold the data for upcoming angle -> it is shared memory between threads, need mutex lock
+#hold the data for upcoming objects -> it is shared memory between threads, need mutex lock
 queue_size = 3000
 V_queue = Queue(maxsize = queue_size)
 
@@ -72,8 +72,8 @@ def TCPip_socket_server():
     global V_queue, lock
     
     #loop back address 127.0.0.1
-    HOST = "127.0.0.1"
-    PORT = 8003
+    HOST = "127.0.0.2"
+    PORT = 8002
 
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:

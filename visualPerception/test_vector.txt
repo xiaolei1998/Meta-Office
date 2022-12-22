@@ -1,0 +1,62 @@
+{'instances': Instances(num_instances=0, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([], size=(0, 4))), scores: tensor([]), pred_classes: tensor([], dtype=torch.int64)])}
+{'instances': Instances(num_instances=1, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[739.6763, 325.9584, 899.9410, 701.5437]])), scores: tensor([0.9718]), pred_classes: tensor([3])])}
+{'instances': Instances(num_instances=1, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[725.3033, 321.6794, 896.4272, 704.2642]])), scores: tensor([0.9773]), pred_classes: tensor([3])])}
+{'instances': Instances(num_instances=1, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[441.6199, 314.7524, 586.2693, 616.9432]])), scores: tensor([0.8785]), pred_classes: tensor([3])])}
+{'instances': Instances(num_instances=0, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([], size=(0, 4))), scores: tensor([]), pred_classes: tensor([], dtype=torch.int64)])}
+{'instances': Instances(num_instances=1, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[142.0461, 271.1583, 292.5698, 656.0715]])), scores: tensor([0.9668]), pred_classes: tensor([3])])}
+{'instances': Instances(num_instances=1, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[133.1818, 202.8363, 293.1790, 598.3124]])), scores: tensor([0.9696]), pred_classes: tensor([3])])}
+{'instances': Instances(num_instances=0, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([], size=(0, 4))), scores: tensor([]), pred_classes: tensor([], dtype=torch.int64)])}
+{'instances': Instances(num_instances=0, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([], size=(0, 4))), scores: tensor([]), pred_classes: tensor([], dtype=torch.int64)])}
+{'instances': Instances(num_instances=1, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[ 45.9501, 239.1164, 227.3110, 596.4659]])), scores: tensor([0.7822]), pred_classes: tensor([3])])}
+{'instances': Instances(num_instances=1, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[ 48.0780, 205.7144, 246.4690, 640.7177]])), scores: tensor([0.9754]), pred_classes: tensor([3])])}
+{'instances': Instances(num_instances=3, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[ 63.9277, 239.4163, 247.9702, 622.1478],
+        [286.5103, 410.1705, 514.1836, 720.0000],
+        [345.6108, 565.1295, 453.3629, 672.0365]])), scores: tensor([0.8536, 0.8151, 0.7685]), pred_classes: tensor([3, 3, 1])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[259.0591, 380.9252, 477.3435, 720.0000],
+        [111.7636, 217.6914, 261.1222, 595.4573]])), scores: tensor([0.8757, 0.8571]), pred_classes: tensor([3, 3])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[250.9438, 384.5595, 473.6646, 718.7416],
+        [113.2118, 206.1893, 266.6675, 586.0596]])), scores: tensor([0.8785, 0.7946]), pred_classes: tensor([3, 3])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[240.1462, 298.5674, 459.2258, 714.1494],
+        [135.5371, 205.5872, 277.3678, 553.0239]])), scores: tensor([0.9269, 0.8972]), pred_classes: tensor([3, 3])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[771.7229, 209.6360, 945.6268, 686.2778],
+        [249.0892, 306.5876, 457.9462, 700.3513]])), scores: tensor([0.9708, 0.9137]), pred_classes: tensor([3, 3])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[724.9690, 451.9980, 826.9762, 554.8401],
+        [666.4650, 422.8711, 865.3764, 710.1901]])), scores: tensor([0.9260, 0.7537]), pred_classes: tensor([1, 3])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[757.0278, 461.2049, 862.8766, 575.6280],
+        [705.0151, 433.5636, 901.2961, 720.0000]])), scores: tensor([0.8881, 0.7820]), pred_classes: tensor([1, 3])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[761.8798, 456.1221, 867.0143, 571.4196],
+        [706.1759, 425.6880, 905.2954, 720.0000]])), scores: tensor([0.8771, 0.7243]), pred_classes: tensor([1, 3])])}
+{'instances': Instances(num_instances=0, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([], size=(0, 4))), scores: tensor([]), pred_classes: tensor([], dtype=torch.int64)])}
+{'instances': Instances(num_instances=1, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[ 897.3891,  303.5845, 1176.4138,  719.9526]])), scores: tensor([0.8971]), pred_classes: tensor([3])])}
+{'instances': Instances(num_instances=1, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[ 834.3152,  128.3210, 1167.3958,  720.0000]])), scores: tensor([0.8953]), pred_classes: tensor([3])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[709.8392, 470.7417, 942.7654, 614.9901],
+        [664.9111, 167.4695, 994.7899, 691.1052]])), scores: tensor([0.8593, 0.8172]), pred_classes: tensor([2, 3])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[ 733.5673,  469.3156,  961.8014,  614.6101],
+        [ 682.2797,  167.1682, 1020.0530,  707.9496]])), scores: tensor([0.8485, 0.8407]), pred_classes: tensor([2, 3])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[309.0406, 418.9025, 532.4598, 572.7245],
+        [256.8319,  91.8006, 576.0433, 497.8282]])), scores: tensor([0.9423, 0.8947]), pred_classes: tensor([2, 3])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[232.6901, 258.7364, 530.2643, 712.5241],
+        [288.7880, 531.7068, 488.7399, 684.9818]])), scores: tensor([0.9074, 0.7596]), pred_classes: tensor([3, 2])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[ 76.7925, 270.7325, 387.4847, 720.0000],
+        [132.2466, 545.9998, 340.9696, 694.3656]])), scores: tensor([0.9040, 0.7081]), pred_classes: tensor([3, 2])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[104.8190, 411.9857, 320.0970, 551.5738],
+        [ 69.8083, 119.4365, 358.0297, 702.1795]])), scores: tensor([0.9064, 0.8564]), pred_classes: tensor([2, 3])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[ 97.4627, 399.3164, 319.7100, 550.5618],
+        [ 54.9339, 117.3147, 375.7430, 687.1050]])), scores: tensor([0.8863, 0.8499]), pred_classes: tensor([2, 3])])}
+{'instances': Instances(num_instances=1, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[350.4848,  94.8595, 670.4397, 647.5447]])), scores: tensor([0.7045]), pred_classes: tensor([3])])}
+{'instances': Instances(num_instances=1, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[658.0052, 262.2496, 901.6694, 709.9608]])), scores: tensor([0.8353]), pred_classes: tensor([3])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[455.8031, 401.2831, 713.2189, 595.8721],
+        [403.6669, 203.0618, 769.4519, 693.0954]])), scores: tensor([0.9349, 0.8552]), pred_classes: tensor([4, 3])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[476.3790, 395.1312, 740.2658, 593.6747],
+        [419.4813, 194.7529, 802.5211, 704.3617]])), scores: tensor([0.9325, 0.8784]), pred_classes: tensor([4, 3])])}
+{'instances': Instances(num_instances=1, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[550.8178, 186.8570, 916.9890, 696.1039]])), scores: tensor([0.7834]), pred_classes: tensor([3])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[ 650.6292,  297.7558, 1025.7261,  711.5217],
+        [ 696.3791,  467.8263,  956.2109,  664.2963]])), scores: tensor([0.8630, 0.8437]), pred_classes: tensor([3, 4])])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[530.7768, 470.8735, 813.7374, 696.7913],
+        [455.4882, 258.7290, 881.0350, 720.0000]])), scores: tensor([0.8979, 0.8738]), pred_classes: tensor([4, 3])])}
+{'instances': Instances(num_instances=0, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([], size=(0, 4))), scores: tensor([]), pred_classes: tensor([], dtype=torch.int64)])}
+{'instances': Instances(num_instances=2, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([[ 73.1018, 461.8113, 252.6769, 655.9681],
+        [ 28.1675, 279.6568, 347.3483, 659.3514]])), scores: tensor([0.7175, 0.7052]), pred_classes: tensor([4, 3])])}
+{'instances': Instances(num_instances=0, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([], size=(0, 4))), scores: tensor([]), pred_classes: tensor([], dtype=torch.int64)])}
+{'instances': Instances(num_instances=0, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([], size=(0, 4))), scores: tensor([]), pred_classes: tensor([], dtype=torch.int64)])}
+{'instances': Instances(num_instances=0, image_height=720, image_width=1280, fields=[pred_boxes: Boxes(tensor([], size=(0, 4))), scores: tensor([]), pred_classes: tensor([], dtype=torch.int64)])}
